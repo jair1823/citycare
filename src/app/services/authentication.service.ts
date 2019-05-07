@@ -20,18 +20,19 @@ export class AuthenticationService {
   constructor(private storege: Storage, private plt: Platform) {
     this.plt.ready().then(() => {
       this.checkToken();
-    })
+    });
   }
 
   login(email:string,password:string) {
-    
+   
     return this.storege.set(TOKEN_KEY, this.user).then(res => {
       //quiero guardar el usuario en el storage
       //primero debo hacer un llamado a la base de datos
       //luego manipular el resultado que me dieron.  
-      if(email == "jair" && password == "123"){
+      /*if(email == "jair" && password == "123"){
         this.authenticationState.next(true);
-      }
+      }*/
+      this.authenticationState.next(true);
       
     });
   }
