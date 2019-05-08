@@ -11,32 +11,65 @@ export class MenuPage implements OnInit {
   pages = [
     {
       title:'Inicio',
-      url:'/members/menu/inicio'
+      url:'/members/menu/inicio',
+      icon: 'home'
     },
     {
       title:'Búsqueda',
-      url:'/members/menu/busqueda'
+      url:'/members/menu/busqueda',
+      icon: 'search'
     },
     {
       title:'Perfil',
-      url:'/members/menu/perfil'
+      url:'/members/menu/perfil',
+      icon: 'person'
     },
     {
       title:'Mis Áreas Favoritas',
-      url:'/members/menu/areas'
+      url:'/members/menu/areas',
+      icon: 'star'
     },
     {
       title:'Comunidades',
-      url:'/members/menu/comunidades'
+      url:'/members/menu/comunidades',
+      icon: 'people'
     },
     {
       title:'Información',
-      url:'/members/menu/informacion'
+      url:'/members/menu/informacion',
+      icon: 'information'
     },
     {
       title:'Estadísticas',
-      url:'/members/menu/estadisticas'
+      children: [
+        {
+          title:'Comunidades Provincia',
+          url:'/members/menu/provincia',
+          icon: 'stats'
+        },
+        {
+          title:'Reportes de Servicios',
+          url:'/members/menu/servicios',
+          icon: 'stats'
+        },
+        {
+          title:'Reportes de Seguridad',
+          url:'/members/menu/seguridad',
+          icon: 'stats'
+        },
+        {
+          title:'Estadística Sexo',
+          url:'/members/menu/sexo',
+          icon: 'stats'
+        },
+        {
+          title:'Estadística Tiempo',
+          url:'/members/menu/tiempo',
+          icon: 'stats'
+        }
+      ]
     }
+    
   ];
   selectedPath='';
   constructor(private router : Router, private authService: AuthenticationService) { 

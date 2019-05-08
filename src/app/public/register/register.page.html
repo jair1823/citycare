@@ -10,50 +10,45 @@
 </ion-header>
 
 <ion-content>
+  <ion-img style="width: 80px; height: 80px;" src="https://comunidades-organizadas.000webhostapp.com/plugins/images/cityCareLogo.png"></ion-img>
   <ion-item>
-    <ion-label position="floating">Nombre</ion-label>
-    <!-- <ion-input [(ngModel)]="email"></ion-input> -->
-    <ion-input placeholder="Enter Input"></ion-input>
+    <ion-label>Nombre: </ion-label>
+    <ion-input placeholder="nombre" slot="end"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">Primer Apellido</ion-label>
-    <!-- <ion-input [(ngModel)]="email"></ion-input> -->
-    <ion-input placeholder="Enter Input"></ion-input>
+    <ion-label>Primer Apellido: </ion-label>
+    <ion-input placeholder="primer apellido" slot="end"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">Segundo Apellido</ion-label>
-    <!-- <ion-input [(ngModel)]="email"></ion-input> -->
-    <ion-input placeholder="Enter Input"></ion-input>
+    <ion-label>Segundo Apellido:</ion-label>
+    <ion-input placeholder="apellido2" slot="end"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">Cedula</ion-label>
-    <!-- <ion-input [(ngModel)]="email"></ion-input> -->
-    <ion-input placeholder="Enter Input"></ion-input>
+    <ion-label>Cedula: </ion-label>
+    <ion-input placeholder="cedula" type="number" max="10" slot="end"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">Extranjero</ion-label>
-    <!-- <ion-input [(ngModel)]="email"></ion-input> -->
-    <ion-input placeholder="Enter Input"></ion-input>
+    <ion-label>Extranjero: </ion-label>
+    <ion-checkbox color="warning" slot="end"></ion-checkbox>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">Género</ion-label>
-    <!-- <ion-input [(ngModel)]="email"></ion-input> -->
-    <ion-input placeholder="Enter Input"></ion-input>
+    <ion-label>Género</ion-label>
+    <ion-select placeholder="Select One">
+      <ion-select-option value="f">Femenino</ion-select-option>
+      <ion-select-option value="h">Hombre</ion-select-option>
+    </ion-select>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">Dirección de correo electrónico</ion-label>
-    <!-- <ion-input [(ngModel)]="email"></ion-input> -->
-    <ion-input placeholder="Enter Input"></ion-input>
+    <ion-label>Correo electrónico: </ion-label>
+    <ion-input slot="end" placeholder="email" type="email"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">Contraseña</ion-label>
-    <!-- <ion-input [(ngModel)]="email"></ion-input> -->
-    <ion-input placeholder="Enter Input"></ion-input>
+    <ion-label>Contraseña</ion-label>
+    <ion-input placeholder="password" slot="end" type="password"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">Confirmar contraseña</ion-label>
-    <!-- <ion-input [(ngModel)]="email"></ion-input> -->
-    <ion-input placeholder="Enter Input"></ion-input>
+    <ion-label>Repetir contraseña</ion-label>
+    <ion-input placeholder="password" slot="end" type="password"></ion-input>
   </ion-item>
-  <ion-button expand="block" color="secondary">Register</ion-button>
+  <ion-button expand="block" color="tertiary">Register</ion-button>
 </ion-content>

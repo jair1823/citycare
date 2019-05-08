@@ -1,3 +1,20 @@
-.active-item {
+.active {
     border-left: 8px solid var(--ion-color-tertiary);
+    --ion-text-color: var(--ion-color-tertiary);
+    ion-icon{
+        --ion-text-color-rgb: var(--ion-color-tertiary);
+    }
+
+}
+.active-parent{
+    font-weight: 500;
+    --ion-text-color: var(--ion-color-warning);
+    ion-icon{
+        --ion-text-color-rgb: var(--ion-color-warning);
+    }
+}
+
+.sub-item{
+    padding-left: 20px;
+    font-size: small;
 }

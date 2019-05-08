@@ -20,7 +20,7 @@ const routes: Routes = [
         path: 'busqueda',
         loadChildren: '../busqueda/busqueda.module#BusquedaPageModule'
       },
- 
+
       {
         path: 'perfil',
         loadChildren: '../perfil/perfil.module#PerfilPageModule'
@@ -37,10 +37,29 @@ const routes: Routes = [
         path: 'informacion',
         loadChildren: '../informacion/informacion.module#InformacionPageModule'
       },
-      { 
-        path: 'estadisticas', 
+      {
+        path: 'estadisticas',
         loadChildren: '../estadisticas-sub-menu/estadisticas-sub-menu.module#EstadisticasSubMenuPageModule'
-       }
+      },
+      { path: 'provincia', 
+        loadChildren: '../estadisticas/provincia/provincia.module#ProvinciaPageModule'
+      },
+      {
+        path: 'seguridad',
+        loadChildren: '../estadisticas/seguridad/seguridad.module#SeguridadPageModule'
+      },
+      { 
+        path: 'servicios', 
+        loadChildren: '../estadisticas/servicios/servicios.module#ServiciosPageModule' 
+      },
+      { 
+        path: 'sexo', 
+        loadChildren: '../estadisticas/sexo/sexo.module#SexoPageModule' 
+      },
+      { 
+        path: 'tiempo', 
+        loadChildren: '../estadisticas/tiempo/tiempo.module#TiempoPageModule' 
+      },
     ]
   }
 ];
@@ -54,4 +73,4 @@ const routes: Routes = [
   ],
   declarations: [MenuPage]
 })
-export class MenuPageModule {}
+export class MenuPageModule { }
