@@ -8,7 +8,7 @@
   <br><br><br>
   <ion-item>
     <ion-label position="floating">Dirección de correo electrónico</ion-label>
-    <ion-input [(ngModel)]="email"></ion-input>
+    <ion-input [(ngModel)]="email" type="email"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Contraseña</ion-label>
@@ -20,14 +20,10 @@
     Registrar
   </ion-button>
 
-
-  <ion-list>
-    <ion-item>
-      <ion-label>{{email}}</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>{{password}}</ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title color="danger">{{msg_error}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
 
 </ion-content>

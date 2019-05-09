@@ -11,7 +11,7 @@
 
       <div *ngFor="let p of pages">
 
-        <ion-menu-toggle *ngIf="p.url">
+        <ion-menu-toggle auto-hide="false" *ngIf="p.url">
           <ion-item [routerLink]="p.url" routerDirection="root" routerLinkActive="active">
             <ion-icon slot="start" [name]="p.icon"></ion-icon>
             <ion-label>
@@ -29,7 +29,7 @@
         </ion-item>
 
         <ion-list *ngIf="p.open">
-          <ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
             <ion-item class="sub-item" *ngFor="let c of p.children" [routerLink]="c.url" routerDirection="root"
               routerLinkActive="active">
               <ion-icon slot="start" [name]="c.icon"></ion-icon>

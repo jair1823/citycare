@@ -10,77 +10,87 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 export class MenuPage implements OnInit {
   pages = [
     {
-      title:'Inicio',
-      url:'/members/menu/inicio',
+      title: 'Inicio',
+      url: '/members/menu/inicio',
       icon: 'home'
     },
     {
-      title:'Búsqueda',
-      url:'/members/menu/busqueda',
+      title: 'Búsqueda',
+      url: '/members/menu/busqueda',
       icon: 'search'
     },
     {
-      title:'Perfil',
-      url:'/members/menu/perfil',
-      icon: 'person'
+      title: 'Perfil',
+      children: [
+        {
+          title: 'Información',
+          url: '/members/menu/perfil',
+          icon: 'person'
+        },
+        {
+          title: 'Mis Publicaciones',
+          url: '/members/menu/mis-publicaciones',
+          icon: 'globe'
+        },
+      ]
     },
     {
-      title:'Mis Áreas Favoritas',
-      url:'/members/menu/areas',
+      title: 'Mis Áreas Favoritas',
+      url: '/members/menu/areas',
       icon: 'star'
     },
     {
-      title:'Comunidades',
-      url:'/members/menu/comunidades',
+      title: 'Comunidades',
+      url: '/members/menu/comunidades',
       icon: 'people'
     },
     {
-      title:'Información',
-      url:'/members/menu/informacion',
+      title: 'Información',
+      url: '/members/menu/informacion',
       icon: 'information'
     },
     {
-      title:'Estadísticas',
+      title: 'Estadísticas',
       children: [
         {
-          title:'Comunidades Provincia',
-          url:'/members/menu/provincia',
+          title: 'Comunidades Provincia',
+          url: '/members/menu/provincia',
           icon: 'stats'
         },
         {
-          title:'Reportes de Servicios',
-          url:'/members/menu/servicios',
+          title: 'Reportes de Servicios',
+          url: '/members/menu/servicios',
           icon: 'stats'
         },
         {
-          title:'Reportes de Seguridad',
-          url:'/members/menu/seguridad',
+          title: 'Reportes de Seguridad',
+          url: '/members/menu/seguridad',
           icon: 'stats'
         },
         {
-          title:'Estadística Sexo',
-          url:'/members/menu/sexo',
+          title: 'Estadística Sexo',
+          url: '/members/menu/sexo',
           icon: 'stats'
         },
         {
-          title:'Estadística Tiempo',
-          url:'/members/menu/tiempo',
+          title: 'Estadística Tiempo',
+          url: '/members/menu/tiempo',
           icon: 'stats'
         }
       ]
     }
-    
+
   ];
-  selectedPath='';
-  constructor(private router : Router, private authService: AuthenticationService) { 
-    this.router.events.subscribe((event:RouterEvent)=>{
-      if(event&&event.url){
+  selectedPath = '';
+  constructor(private router: Router, private authService: AuthenticationService) {
+    this.router.events.subscribe((event: RouterEvent) => {
+      if (event && event.url) {
         this.selectedPath = event.url;
       }
     });
   }
 
-  logout(){
+  logout() {
     this.authService.logout();
   }
 

@@ -60,6 +60,10 @@ const routes: Routes = [
         path: 'tiempo', 
         loadChildren: '../estadisticas/tiempo/tiempo.module#TiempoPageModule' 
       },
+      { 
+        path: 'mis-publicaciones', 
+        loadChildren: '../mis-publicaciones/mis-publicaciones.module#MisPublicacionesPageModule' 
+      },
     ]
   }
 ];

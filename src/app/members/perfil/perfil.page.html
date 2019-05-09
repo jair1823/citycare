@@ -3,10 +3,30 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Perfil</ion-title>
+    <ion-title>Mi Información</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-card-header text-center>
+      <div *ngIf="user.avatar_path else default">
+        <img class="circle"
+          [src]="'https://comunidades-organizadas.000webhostapp.com/users/'+user.id+'/'+user.avatar_path">
+      </div>
+      <ng-template #default>
+        <img class="circle" [src]="'https://es.tiendas.com/assets/images/no_disponible.jpg?v=2.0.1.6'">
+      </ng-template>
 
+      <ion-card-title>{{user.nombre}}</ion-card-title>
+      <ion-card-subtitle>{{user.email}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-button expand="block">
+        Editar información
+      </ion-button>
+    </ion-card-content>
+
+  </ion-card>
 </ion-content>
