@@ -1,12 +1,14 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Iniciar sesión</ion-title>
+    <ion-title>City Care</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-progress-bar *ngIf="bar" type=indeterminate ></ion-progress-bar>
-  <br><br><br>
+  <ion-progress-bar *ngIf="bar" type=indeterminate></ion-progress-bar>
+  <div class="img-login">
+    <ion-img src="https://comunidades-organizadas.000webhostapp.com/plugins/images/cityCareLogo.png"></ion-img>
+  </div>
   <ion-item>
     <ion-label position="floating">Dirección de correo electrónico</ion-label>
     <ion-input [(ngModel)]="email" type="email"></ion-input>
@@ -17,13 +19,14 @@
   </ion-item>
 
   <ion-button color="warning" (click)="login()" expand="block">Iniciar sesión</ion-button>
-  <ion-button color="warning" expand="block" routerLink="/register" routerDirection="forward">
+  <ion-button color="warning" expand="block" href="https://comunidades-organizadas.000webhostapp.com/register"
+    target="_blank" rel="noopener noreferrer">
     Registrar
   </ion-button>
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title color="danger">{{msg_error}}</ion-card-title>
+      <ion-card-title color="danger" class="msg-error">{{msg_error}}</ion-card-title>
     </ion-card-header>
   </ion-card>
 
