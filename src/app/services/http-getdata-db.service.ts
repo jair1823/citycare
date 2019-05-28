@@ -17,8 +17,21 @@ export class HttpGetdataDbService {
   distritos = 'https://comunidades-organizadas.000webhostapp.com/mobile/filtros/distritos.php';
   comunidades = 'https://comunidades-organizadas.000webhostapp.com/mobile/filtros/comunidades.php';
   grupos = 'https://comunidades-organizadas.000webhostapp.com/mobile/filtros/grupos.php';
+  news_start_filter = 'https://comunidades-organizadas.000webhostapp.com/mobile/start_filter/news_by_filter.php';
+  security_start_filter = 'https://comunidades-organizadas.000webhostapp.com/mobile/start_filter/security_by_filter.php';
+  services_start_filter = 'https://comunidades-organizadas.000webhostapp.com/mobile/start_filter/services_by_filter.php';
 
   constructor(private http: HttpClient) { }
+
+  services_by_filter_start(by: any) {
+    return this.http.post(this.services_start_filter, JSON.stringify(by));
+  }
+  security_by_filter_start(by: any) {
+    return this.http.post(this.security_start_filter, JSON.stringify(by));
+  }
+  news_by_filter_start(by: any) {
+    return this.http.post(this.news_start_filter, JSON.stringify(by));
+  }
 
   get_grupos(by: any) {
     return this.http.post(this.grupos, JSON.stringify(by));
