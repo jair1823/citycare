@@ -20,8 +20,12 @@ export class HttpGetdataDbService {
   news_start_filter = 'https://comunidades-organizadas.000webhostapp.com/mobile/start_filter/news_by_filter.php';
   security_start_filter = 'https://comunidades-organizadas.000webhostapp.com/mobile/start_filter/security_by_filter.php';
   services_start_filter = 'https://comunidades-organizadas.000webhostapp.com/mobile/start_filter/services_by_filter.php';
-
+  select_all_busqueda = 'https://comunidades-organizadas.000webhostapp.com/mobile/busqueda/select_all_reports.php';
   constructor(private http: HttpClient) { }
+
+  select_reports_busqueda(){
+    return this.http.get(this.select_all_busqueda);
+  }
 
   services_by_filter_start(by: any) {
     return this.http.post(this.services_start_filter, JSON.stringify(by));
