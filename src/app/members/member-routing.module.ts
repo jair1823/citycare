@@ -1,22 +1,16 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-//
+import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: './dashboard/dashboard.module#DashboardPageModule'
   },
-  { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' },
-  /*{ path: 'noticias', loadChildren: './tabs-areas/noticias/noticias.module#NoticiasPageModule' },
-  { path: 'seguridad', loadChildren: './tabs-areas/seguridad/seguridad.module#SeguridadPageModule' },
-  { path: 'servicios', loadChildren: './tabs-areas/servicios/servicios.module#ServiciosPageModule' },*/
-  
-
+  { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forChild(routes/*, { preloadingStrategy: PreloadAllModules }*/)
+    RouterModule.forChild(routes)
   ],
   exports: [RouterModule]
 })
