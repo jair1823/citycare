@@ -8,6 +8,9 @@
       <ion-button color="light" (click)="filtro = !filtro;ocultar();">
         <ion-icon slot="icon-only" name="options"></ion-icon>
       </ion-button>
+      <ion-button *ngIf="filtrado" color="light" (click)="no_filtrar()">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
     </ion-buttons>
 
     <ion-title>Inicio</ion-title>
@@ -72,7 +75,7 @@
         </ion-select>
       </ion-item>
 
-      <ion-button *ngIf="s5" expand="block" color="secondary" (click)="filtro = !filtro;">
+      <ion-button *ngIf="s5" expand="block" color="secondary" (click)="filtrar(); filtro = !filtro;">
         Filtrar
       </ion-button>
     </ion-card-content>

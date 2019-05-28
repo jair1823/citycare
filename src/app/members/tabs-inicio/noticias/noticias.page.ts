@@ -13,6 +13,8 @@ export class NoticiasPage implements OnInit {
   bar2: boolean;
   fitro: boolean;
 
+  filtrado: boolean = false;
+
   provincias: any;
   provincia: Number;
 
@@ -53,6 +55,7 @@ export class NoticiasPage implements OnInit {
   }
 
   ionViewWillEnter() {
+    this.filtrado = my_parent.filtrado;
     this.bar = true;
     this.fitro = false;
     this.news = [];
@@ -64,8 +67,47 @@ export class NoticiasPage implements OnInit {
         (error) => {
           console.log(error);
         });
+    } else {
+      this.grupo = my_parent.grupo;
+      this.http.news_by_filter_start({ id: this.grupo }).subscribe((res) => {
+        this.news = res;
+        this.bar = false;
+      },
+        (error) => {
+          console.log(error);
+        });
     }
 
+  }
+
+  no_filtrar() {
+    my_parent.setFitrado(false);
+    this.filtrado = false;
+    my_parent.setGrupo(null);
+    this.bar = true;
+    this.news = [];
+    this.http.get_all_news().subscribe((res) => {
+      this.news = res;
+      this.bar = false;
+    },
+      (error) => {
+        console.log(error);
+      });
+  }
+
+  filtrar() {
+    my_parent.setFitrado(true);
+    my_parent.setGrupo(this.grupo);
+    this.filtrado = true;
+    this.bar = true;
+    this.news = [];
+    this.http.news_by_filter_start({ id: this.grupo }).subscribe((res) => {
+      this.news = res;
+      this.bar = false;
+    },
+      (error) => {
+        console.log(error);
+      });
   }
 
   ocultar() {

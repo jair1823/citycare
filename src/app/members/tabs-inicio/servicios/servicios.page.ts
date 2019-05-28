@@ -14,6 +14,8 @@ export class ServiciosPage implements OnInit {
   bar2: boolean;
   fitro: boolean;
 
+  filtrado: boolean = false;
+
   provincias: any;
   provincia: Number;
 
@@ -43,18 +45,10 @@ export class ServiciosPage implements OnInit {
     this.bar2 = true;
     this.provincias = my_parent.p;
     this.bar2 = false;
-    /*
-    this.http.get_filtros_home().subscribe((res) => {
-      this.bar2 = false;
-      this.provincias = res;
-    },
-      (error) => {
-        console.log(error);
-      });
-      */
   }
 
   ionViewWillEnter() {
+    this.filtrado =  my_parent.filtrado;
     this.bar = true;
     this.fitro = false;
     this.services = [];
@@ -66,10 +60,48 @@ export class ServiciosPage implements OnInit {
         (error) => {
           console.log(error);
         });
+    } else {
+      this.grupo = my_parent.grupo;
+      this.http.services_by_filter_start({ id: this.grupo }).subscribe((res) => {
+        this.services = res;
+        this.bar = false;
+      },
+        (error) => {
+          console.log(error);
+        });
     }
-
-
   }
+
+  no_filtrar() {
+    my_parent.setFitrado(false);
+    my_parent.setGrupo(null);
+    this.filtrado = false;
+    this.bar = true;
+    this.services = [];
+    this.http.get_all_services_home().subscribe((res) => {
+      this.services = res;
+      this.bar = false;
+    },
+      (error) => {
+        console.log(error);
+      });
+  }
+
+  filtrar() {
+    my_parent.setFitrado(true);
+    my_parent.setGrupo(this.grupo);
+    this.filtrado = true;
+    this.bar = true;
+    this.services = [];
+    this.http.news_by_filter_start({ id: this.grupo }).subscribe((res) => {
+      this.services = res;
+      this.bar = false;
+    },
+      (error) => {
+        console.log(error);
+      });
+  }
+
   ocultar() {
     this.provincia =
       this.canton =
