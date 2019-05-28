@@ -2,6 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { HttpGetdataDbService } from 'src/app/services/http-getdata-db.service';
 import { LoadingController } from '@ionic/angular';
 export var filtrado: boolean;
+export function setFitrado(newVaule:boolean){
+  filtrado = newVaule;
+}
+export var grupo: Number;
+export function setGrupo(newVaule:Number){
+  grupo = newVaule;
+}
 
 export var p:any;
 @Component({
