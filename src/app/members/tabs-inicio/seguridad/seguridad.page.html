@@ -3,12 +3,78 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="filtro = !filtro;ocultar();">
+        <ion-icon slot="icon-only" name="options"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-progress-bar *ngIf="bar" type=indeterminate></ion-progress-bar>
+  <ion-progress-bar *ngIf="bar || bar2" type=indeterminate></ion-progress-bar>
+
+  <ion-card *ngIf="filtro" class="card-search" color="light">
+    <ion-card-header>
+      <ion-card-title>Filtrar publicaciones</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Provincia</ion-label>
+        <ion-select class="option-select" placeholder="Select One" [(ngModel)]="provincia"
+          (ngModelChange)="changeprovincias()">
+          <ion-select-option *ngFor="let item of provincias" [value]="item.id">
+            {{item.name}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="s1">
+        <ion-label>Cantón</ion-label>
+        <ion-select class="option-select" placeholder="Select One" [(ngModel)]="canton"
+          (ngModelChange)="changecantones()">
+          <ion-select-option *ngFor="let item of cantones" [value]="item.id">
+            {{item.name}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="s2">
+        <ion-label>Distrito</ion-label>
+        <ion-select class="option-select" placeholder="Select One" [(ngModel)]="distrito"
+          (ngModelChange)="changedistritos()">
+          <ion-select-option *ngFor="let item of distritos" [value]="item.id">
+            {{item.name}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="s3">
+        <ion-label>Comunidad</ion-label>
+        <ion-select class="option-select" placeholder="Select One" [(ngModel)]="comunidad"
+          (ngModelChange)="changecomunidades()">
+          <ion-select-option *ngFor="let item of comunidades" [value]="item.id">
+            {{item.name}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="s4">
+        <ion-label class="grupos-label">Grupos de Comunidades</ion-label>
+        <ion-select class="option-select" placeholder="Select One" [(ngModel)]="grupo"
+          (ngModelChange)="changegrupos()">
+          <ion-select-option *ngFor="let item of grupos" [value]="item.id">
+            {{item.name}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button *ngIf="s5" expand="block" color="secondary" (click)="filtro = !filtro;">
+        Filtrar
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 
   <ion-card *ngFor="let new of securitys" color="light">
     <ion-card-header>

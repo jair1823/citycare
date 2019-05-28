@@ -40,13 +40,16 @@ export class NoticiasPage implements OnInit {
     this.comunidades = [];
     this.grupos = [];
     this.bar2 = true;
-    this.http.get_filtros_home().subscribe((res) => {
-      this.bar2 = false;
+    this.provincias = my_parent.p;
+    this.bar2 = false;
+    /*this.http.get_filtros_home().subscribe((res) => {
+     
       this.provincias = res;
     },
       (error) => {
         console.log(error);
       });
+      */
   }
 
   ionViewWillEnter() {
@@ -66,7 +69,11 @@ export class NoticiasPage implements OnInit {
   }
 
   ocultar() {
-    this.provincia = null;
+    this.provincia =
+      this.canton =
+      this.distrito =
+      this.comunidad =
+      this.grupo = null;
     this.s1 =
       this.s2 =
       this.s3 =
@@ -81,6 +88,11 @@ export class NoticiasPage implements OnInit {
         this.http.get_cantones(element)
           .subscribe((res) => {
             this.cantones = res;
+
+            this.canton =
+              this.distrito =
+              this.comunidad =
+              this.grupo = null;
             this.s1 = true;
             this.s2 =
               this.s3 =
@@ -106,6 +118,9 @@ export class NoticiasPage implements OnInit {
             this.s3 =
               this.s4 =
               this.s5 = false;
+            this.distrito =
+              this.comunidad =
+              this.grupo = null;
           },
             (error) => {
               console.log(error);
@@ -125,6 +140,8 @@ export class NoticiasPage implements OnInit {
             this.s3 = true;
             this.s4 =
               this.s5 = false;
+            this.comunidad =
+              this.grupo = null;
           },
             (error) => {
               console.log(error);
@@ -143,6 +160,7 @@ export class NoticiasPage implements OnInit {
             this.grupos = res;
             this.s4 = true;
             this.s5 = false;
+            this.grupo = null;
           },
             (error) => {
               console.log(error);

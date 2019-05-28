@@ -19,13 +19,13 @@
   <ion-progress-bar *ngIf="bar || bar2" type=indeterminate></ion-progress-bar>
   <ion-card *ngIf="filtro" class="card-search" color="light">
     <ion-card-header>
-      <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
-      <ion-card-title>Awesome Title</ion-card-title>
+      <ion-card-title>Filtrar publicaciones</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-item>
         <ion-label>Provincia</ion-label>
-        <ion-select placeholder="Select One" [(ngModel)]="provincia" (ngModelChange)="changeprovincias()">
+        <ion-select class="option-select" placeholder="Select One" [(ngModel)]="provincia"
+          (ngModelChange)="changeprovincias()">
           <ion-select-option *ngFor="let item of provincias" [value]="item.id">
             {{item.name}}
           </ion-select-option>
@@ -34,7 +34,8 @@
 
       <ion-item *ngIf="s1">
         <ion-label>Cantón</ion-label>
-        <ion-select placeholder="Select One" [(ngModel)]="canton" (ngModelChange)="changecantones()">
+        <ion-select class="option-select" placeholder="Select One" [(ngModel)]="canton"
+          (ngModelChange)="changecantones()">
           <ion-select-option *ngFor="let item of cantones" [value]="item.id">
             {{item.name}}
           </ion-select-option>
@@ -43,7 +44,8 @@
 
       <ion-item *ngIf="s2">
         <ion-label>Distrito</ion-label>
-        <ion-select placeholder="Select One" [(ngModel)]="distrito" (ngModelChange)="changedistritos()">
+        <ion-select class="option-select" placeholder="Select One" [(ngModel)]="distrito"
+          (ngModelChange)="changedistritos()">
           <ion-select-option *ngFor="let item of distritos" [value]="item.id">
             {{item.name}}
           </ion-select-option>
@@ -52,7 +54,8 @@
 
       <ion-item *ngIf="s3">
         <ion-label>Comunidad</ion-label>
-        <ion-select placeholder="Select One" [(ngModel)]="comunidad" (ngModelChange)="changecomunidades()">
+        <ion-select class="option-select" placeholder="Select One" [(ngModel)]="comunidad"
+          (ngModelChange)="changecomunidades()">
           <ion-select-option *ngFor="let item of comunidades" [value]="item.id">
             {{item.name}}
           </ion-select-option>
@@ -61,7 +64,8 @@
 
       <ion-item *ngIf="s4">
         <ion-label class="grupos-label">Grupos de Comunidades</ion-label>
-        <ion-select placeholder="Select One" [(ngModel)]="grupo" (ngModelChange)="changegrupos()">
+        <ion-select class="option-select" placeholder="Select One" [(ngModel)]="grupo"
+          (ngModelChange)="changegrupos()">
           <ion-select-option *ngFor="let item of grupos" [value]="item.id">
             {{item.name}}
           </ion-select-option>
