@@ -9,8 +9,27 @@ import { MisPublicacionesPage } from './mis-publicaciones.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: MisPublicacionesPage
+    path: 'tabs',
+    component: MisPublicacionesPage,
+    children: [
+      {
+        path: 'noticias',
+        loadChildren: './tabs/noticias/noticias.module#NoticiasPageModule'
+      },
+      {
+        path: 'seguridad',
+        loadChildren: './tabs/seguridad/seguridad.module#SeguridadPageModule'
+      },
+      {
+        path: 'servicios',
+        loadChildren: './tabs/servicios/servicios.module#ServiciosPageModule'
+      }
+    ]
+  },
+  {
+    path:'',
+    redirectTo: 'tabs/noticias',
+    pathMatch: 'full'
   }
 ];
 
@@ -23,4 +42,4 @@ const routes: Routes = [
   ],
   declarations: [MisPublicacionesPage]
 })
-export class MisPublicacionesPageModule {}
+export class MisPublicacionesPageModule { }

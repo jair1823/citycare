@@ -5,7 +5,7 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: './dashboard/dashboard.module#DashboardPageModule'
   },
-  { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' }
+  { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' },
 ];
 
 @NgModule({
