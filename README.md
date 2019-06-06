@@ -1,7 +1,22 @@
-npm install --save @ionic/storage
-ionic g page public/login
-ionic g page public/register
-ionic g page members/dashboard
-ionic g service services/authentication
-ionic g service services/authGuard
-ng generate module members/member-routing --flat
+# Instalación
+
+Para instalar ionic se requiere node.js y git.
+
+# Git
+```
+sudo apt install git
+```
+# Node.js
+```
+sudo apt install nodejs
+```
+
+# Ionic
+```
+sudo npm install -g ionic
+```
+
+# Luego de clonar el repositorio se ejecuta en la carpeta del proyecto
+```
+  ionic serve
+```
