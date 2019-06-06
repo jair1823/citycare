@@ -22,6 +22,7 @@ export class PerfilPage implements OnInit {
     this.authService.getUser().then(res => {
       this.user = res;
       this.nombre = res['nombre'];
+      console.log(this.user);
     });
   }
 

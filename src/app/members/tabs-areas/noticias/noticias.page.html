@@ -3,10 +3,38 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Noticias</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="filtro = !filtro">
+        <ion-icon slot="icon-only" name="options"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>ÁREAS FAVORITAS</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-progress-bar *ngIf="bar" type=indeterminate></ion-progress-bar>
+
+  <ion-card *ngIf="filtro" class="card-search" color="light">
+    <ion-card-header>
+      <ion-card-title>Filtrar publicaciones</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label class="grupos-label">Grupos de Comunidades</ion-label>
+        <ion-select class="option-select" placeholder="Select One">
+          <ion-select-option *ngFor="let item of grupos" [value]="item.id">
+            {{item.name}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button expand="block" color="secondary" (click)="filtro = !filtro;">
+        Filtrar
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
