@@ -8,5 +8,51 @@
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-label>Provincia</ion-label>
+    <ion-select class="option-select" placeholder="Select One" [(ngModel)]="provincia"
+      (ngModelChange)="changeprovincias()">
+      <ion-select-option *ngFor="let p of provincias" [value]="p.id">
+        {{p.name}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Cantón</ion-label>
+    <ion-select class="option-select" placeholder="Select One" [(ngModel)]="canton" (ngModelChange)="changecantones();">
+      <ion-select-option *ngFor="let p of cantones" [value]="p.id">
+        {{p.name}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Distrito</ion-label>
+    <ion-select class="option-select" placeholder="Select One" [(ngModel)]="distrito"
+      (ngModelChange)="changedistritos();">
+      <ion-select-option *ngFor="let p of distritos" [value]="p.id">
+        {{p.name}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Comunidad</ion-label>
+    <ion-select class="option-select" placeholder="Select One" [(ngModel)]="comunidad"
+      (ngModelChange)="changecomunidades();">
+      <ion-select-option *ngFor="let p of comunidades" [value]="p.id">
+        {{p.name}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-card *ngFor="let p of grupos">
+    <ion-card-header>
+      <ion-card-title class="mytitle">{{p.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button color="tertiary" class="btn" expand="block">
+        Seguir
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

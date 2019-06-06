@@ -9,7 +9,10 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class NoticiasPage implements OnInit {
   news: any;
-  grupos:any;
+
+  grupos: any;
+  grupo: Number;
+
   bar: boolean;
   fitro: boolean;
 
@@ -23,21 +26,29 @@ export class NoticiasPage implements OnInit {
   };
 
 
-  constructor(private http:HttpGetdataDbService,
-    private auth:AuthenticationService    
-    ) { }
+  constructor(private http: HttpGetdataDbService,
+    private auth: AuthenticationService
+  ) { }
 
-  
+
 
   ngOnInit() {
     this.fitro = false;
-    this.auth.getUser().then(use=>{
+    this.auth.getUser().then(use => {
       this.user = use;
       this.http.select_mis_comunidades_a(this.user).
-      subscribe((res) => {
-        this.grupos = res;
-        console.log(this.grupos);
-      });
+        subscribe((res) => {
+          this.grupos = res;
+          this.grupo = this.grupos[0].id;
+          console.log(this.grupos);
+          this.http.get_all_news().subscribe((res) => {
+            this.news = res;
+            this.bar = false;
+          },
+            (error) => {
+              console.log(error);
+            });
+        });
     });
   }
 
